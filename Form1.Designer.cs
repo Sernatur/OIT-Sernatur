@@ -89,6 +89,7 @@ namespace OIT_Sernatur
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.NumCount = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.HomNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).BeginInit();
@@ -276,9 +277,9 @@ namespace OIT_Sernatur
             this.label11.Location = new System.Drawing.Point(30, 207);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(96, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Region";
+            this.label11.Text = "Region consultada";
             // 
             // XperBox
             // 
@@ -417,6 +418,7 @@ namespace OIT_Sernatur
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.NumCount);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.HorarioBox);
@@ -460,6 +462,12 @@ namespace OIT_Sernatur
             this.label7.TabIndex = 15;
             this.label7.Text = "Atenciones del dia:";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,9 +486,7 @@ namespace OIT_Sernatur
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "SOFIA";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.HomNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).EndInit();
@@ -560,6 +566,7 @@ namespace OIT_Sernatur
         private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Label NumCount;
 		private System.Windows.Forms.Label label7;
-	}
+        private System.Windows.Forms.Timer timer1;
+    }
 }
 

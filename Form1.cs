@@ -1,6 +1,8 @@
 ﻿/*--------------------------------------------------------------
  * Programa “SOFIA” Diseñado para Sernatur
  * 
+ * Sistema Oficial de Informacion de Asesoramiento
+ * 
  * Programador: Oliver Osvaldo Consterla Araya
  * Correo: Oliver_Consterla@Yahoo.cl
  * Numero movil: +56 9 87612427
@@ -35,11 +37,25 @@ namespace OIT_Sernatur
     {
         IFormatProvider cultura = new CultureInfo("fr-FR");
         String FechaCorrecta,HoraCorrecta,Usuario,mensaje;
+        int HoraDia;
         int Contador = 0;
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void horaDiariaToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.horarioTableAdapter.HoraDiaria(this.sernatur_RegionalDataSet.Horario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,34 +74,36 @@ namespace OIT_Sernatur
             this.nacionalidadTableAdapter.Fill(this.sernatur_RegionalDataSet.Nacionalidad);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.OIT' Puede moverla o quitarla según sea necesario.
             this.oITTableAdapter.Fill(this.sernatur_RegionalDataSet.OIT);
+
+
             NumCount.Text = Contador.ToString();
             OITBox.Text = "";
-            PaisBox.Text = "";
+            RegiBox.Text = "";
+            HomNum.Value = 0;
+            MujNum.Value = 0;
+            DestBox.SelectedIndex = 0;
+            XperBox.SelectedIndex = 0;
+            TematicaBox.SelectedIndex = 0;
+            PaisBox.SelectedIndex = 0;
         }
 
-        private void Form1_Activated(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             Calendario.Value = DateTime.Now;
             Calendario.Format = DateTimePickerFormat.Custom;
             Calendario.CustomFormat = "dd/MM/yyyy";
 
+            HoraDia = Calendario.Value.Hour;
 
-        }
-
-        private void Form1_Click(object sender, EventArgs e)
-        {
-            Calendario.Value = DateTime.Now;
-            Calendario.Format = DateTimePickerFormat.Custom;
-            Calendario.CustomFormat = "dd/MM/yyyy";
+            String selecteded = "SELECT Id, [Rango Hora], [Hora Final], [Hora Inicial] FROM Horario WHERE([Hora Inicial] <= " + HoraDia + ")";
         }
 
         private void SendButton_Click(object sender, EventArgs e)
         {
-            if (!(OITBox.Text == "") && !(PaisBox.Text == ""))
+            if (!(OITBox.Text == "") && !(PaisBox.Text == "") && ( !(HomNum.Value == 0) || !(MujNum.Value == 0) ))
             {
                 ValueRange RangoValor = new ValueRange();
                 RangoValor.MajorDimension = "ROWS";
-                Calendario.Value = DateTime.Now;
                 FechaCorrecta = new DateTime(Calendario.Value.Year, Calendario.Value.Month, Calendario.Value.Day).ToString("dd-MM-yyyy");
                 HoraCorrecta = Calendario.Value.Hour.ToString() + ":" + Calendario.Value.Minute.ToString() + ":" + Calendario.Value.Second.ToString();
 
@@ -113,6 +131,11 @@ namespace OIT_Sernatur
                 mensaje = "El campo Nacionalidad es obligatorio";
                 MessageBox.Show(mensaje);
                 PaisBox.Focus();
+            }else if ((HomNum.Value == 0) || (MujNum.Value == 0))
+            {
+                mensaje = "El campo Hombres o Mujeres debe ser mayor a 0";
+                MessageBox.Show(mensaje);
+                HomNum.Focus();
             }else
             {
                 mensaje = "Los siguientes campos son obligatorios: \n  -OIT\n  -Nacionalidad";
@@ -121,7 +144,8 @@ namespace OIT_Sernatur
             }
         }
 
-        
+
+
 
 
     }
