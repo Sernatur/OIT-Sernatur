@@ -51,7 +51,7 @@ namespace OIT_Sernatur
             {
                 this.horarioTableAdapter.HoraDiaria(this.sernatur_RegionalDataSet.Horario);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
@@ -100,7 +100,7 @@ namespace OIT_Sernatur
 
         private void SendButton_Click(object sender, EventArgs e)
         {
-            if (!(OITBox.Text == "") && !(PaisBox.Text == "") && ( !(HomNum.Value == 0) || !(MujNum.Value == 0) ))
+            if (!(OITBox.Text == "") && !(PaisBox.Text == "") && (!(HomNum.Value == 0) || !(MujNum.Value == 0)))
             {
                 ValueRange RangoValor = new ValueRange();
                 RangoValor.MajorDimension = "ROWS";
