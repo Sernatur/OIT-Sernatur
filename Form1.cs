@@ -79,8 +79,8 @@ namespace OIT_Sernatur
             NumCount.Text = Contador.ToString();
             OITBox.Text = "";
             RegiBox.Text = "";
+            MujNum.Value = 0; 
             HomNum.Value = 0;
-            MujNum.Value = 0;
             DestBox.SelectedIndex = 0;
             XperBox.SelectedIndex = 0;
             TematicaBox.SelectedIndex = 0;
