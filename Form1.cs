@@ -133,6 +133,10 @@ namespace OIT_Sernatur
                 PaisBox.SelectedIndex = 0;
                 HomNum.Value = 0;
                 MujNum.Value = 0;
+                RegiBox.SelectedIndex = 0;
+                DestBox.SelectedIndex = 0;
+                XperBox.SelectedIndex = 0;
+                TematicaBox.SelectedIndex = 0;
             }else if (OITBox.Text == "" && !(PaisBox.Text == ""))
             {
                 mensaje = "El campo OIT es obligatorio";
