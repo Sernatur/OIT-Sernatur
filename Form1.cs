@@ -25,7 +25,7 @@ namespace OIT_Sernatur
     {
         //IFormatProvider cultura = new CultureInfo("fr-FR");
         String FechaCorrecta,HoraCorrecta,/*Usuario,*/mensaje;
-        int HoraDia, DiaHow, DiaNow;
+        int HoraDia, DiaHow, DiaNow, MinutoDia,SegDia;
         int Contador;
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,7 +58,7 @@ namespace OIT_Sernatur
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Tématica' Puede moverla o quitarla según sea necesario.
             this.tématicaTableAdapter.Fill(this.sernatur_RegionalDataSet.Tématica);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Horario' Puede moverla o quitarla según sea necesario.
-            this.horarioTableAdapter.Fill(this.sernatur_RegionalDataSet.Horario);
+            this.horarioTableAdapter.FillBy(this.sernatur_RegionalDataSet.Horario);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Nacionalidad' Puede moverla o quitarla según sea necesario.
             this.nacionalidadTableAdapter.Fill(this.sernatur_RegionalDataSet.Nacionalidad);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.OIT' Puede moverla o quitarla según sea necesario.
@@ -98,9 +98,15 @@ namespace OIT_Sernatur
             Calendario.Value = DateTime.Now;
 
             HoraDia = Calendario.Value.Hour;
+            MinutoDia = Calendario.Value.Minute;
+            SegDia = Calendario.Value.Second;
+
             DiaNow = Calendario.Value.Day;
 
-            String selecteded = "SELECT Id, [Rango Hora], [Hora Final], [Hora Inicial] FROM Horario WHERE([Hora Inicial] <= " + HoraDia + ")";
+            if (MinutoDia == 0 && SegDia == 0)
+            {
+                this.horarioTableAdapter.FillBy(this.sernatur_RegionalDataSet.Horario);
+            }
         }
 
         private void SendButton_Click(object sender, EventArgs e)

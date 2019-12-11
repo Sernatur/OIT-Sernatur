@@ -4824,8 +4824,8 @@ namespace Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Id, [Rango Hora], [Hora Final], [Hora Inicial]\r\nFROM            Hor" +
-                "ario\r\nWHERE        ([Hora Inicial] <= 9)";
+            this._commandCollection[1].CommandText = "SELECT Id, [Rango Hora], [Hora Final], [Hora Inicial]\r\nFROM Horario\r\nWHERE ((([Ho" +
+                "ra Inicial])<=Hour(Now())));\r\n";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4857,13 +4857,24 @@ namespace Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int HoraDiaria(Sernatur_RegionalDataSet.HorarioDataTable dataTable) {
+        public virtual int FillBy(Sernatur_RegionalDataSet.HorarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Sernatur_RegionalDataSet.HorarioDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            Sernatur_RegionalDataSet.HorarioDataTable dataTable = new Sernatur_RegionalDataSet.HorarioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

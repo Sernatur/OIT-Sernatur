@@ -75,7 +75,7 @@ namespace OIT_Sernatur
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(mainForm: new Form1());
 
             Console.WriteLine("Done!");
         }

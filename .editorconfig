@@ -11,3 +11,12 @@ dotnet_diagnostic.CA1303.severity = none
 
 # CA1820: Probar si las cadenas están vacías mediante la longitud de cadena
 dotnet_diagnostic.CA1820.severity = none
+
+# CA1707: Quite los caracteres de subrayado del nombre “OIT_Sernatur” de espacio de nombres.
+dotnet_diagnostic.CA1707.severity = none
+
+# IDE0055: Fijar formato
+dotnet_diagnostic.IDE0055.severity = none
+
+# CA1824: Marcar ensamblados con NeutralResourcesLanguageAttribute
+dotnet_diagnostic.CA1824.severity = none

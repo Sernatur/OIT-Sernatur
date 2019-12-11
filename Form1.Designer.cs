@@ -45,6 +45,8 @@ namespace OIT_Sernatur
             this.label1 = new System.Windows.Forms.Label();
             this.HomNum = new System.Windows.Forms.NumericUpDown();
             this.OITBox = new System.Windows.Forms.ComboBox();
+            this.oITBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sernatur_RegionalDataSet = new Sofia_Sernatur.Sernatur_RegionalDataSet();
             this.oITBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,21 +56,26 @@ namespace OIT_Sernatur
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.HorarioBox = new System.Windows.Forms.ComboBox();
+            this.horarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.horarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TematicaBox = new System.Windows.Forms.ComboBox();
+            this.tématicaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tématicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.XperBox = new System.Windows.Forms.ComboBox();
+            this.experienciasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.experienciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DestBox = new System.Windows.Forms.ComboBox();
             this.regiónDestinoPorRegionesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.regiónBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.regiónDestinoPorRegionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.regiónBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RegiBox = new System.Windows.Forms.ComboBox();
             this.SendButton = new System.Windows.Forms.Button();
             this.PaisBox = new System.Windows.Forms.ComboBox();
+            this.nacionalidadBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.nacionalidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sernaturRegionalDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Calendario = new System.Windows.Forms.DateTimePicker();
@@ -76,13 +83,6 @@ namespace OIT_Sernatur
             this.NumCount = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.regiónBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.sernatur_RegionalDataSet = new Sofia_Sernatur.Sernatur_RegionalDataSet();
-            this.oITBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.horarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tématicaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.experienciasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.nacionalidadBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.oITTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.OITTableAdapter();
             this.nacionalidadTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.NacionalidadTableAdapter();
             this.horarioTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.HorarioTableAdapter();
@@ -91,28 +91,28 @@ namespace OIT_Sernatur
             this.regiónTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.RegiónTableAdapter();
             this.destino_Por_RegionesTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.Destino_Por_RegionesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.HomNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MujNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.asesoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónDestinoPorRegionesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónDestinoPorRegionesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sernaturRegionalDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,6 +144,16 @@ namespace OIT_Sernatur
             this.OITBox.Size = new System.Drawing.Size(127, 21);
             this.OITBox.TabIndex = 1;
             this.OITBox.ValueMember = "Oficina";
+            // 
+            // oITBindingSource1
+            // 
+            this.oITBindingSource1.DataMember = "OIT";
+            this.oITBindingSource1.DataSource = this.sernatur_RegionalDataSet;
+            // 
+            // sernatur_RegionalDataSet
+            // 
+            this.sernatur_RegionalDataSet.DataSetName = "Sernatur_RegionalDataSet";
+            this.sernatur_RegionalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -216,6 +226,11 @@ namespace OIT_Sernatur
             this.HorarioBox.TabIndex = 4;
             this.HorarioBox.ValueMember = "Rango Hora";
             // 
+            // horarioBindingSource1
+            // 
+            this.horarioBindingSource1.DataMember = "Horario";
+            this.horarioBindingSource1.DataSource = this.sernatur_RegionalDataSet;
+            // 
             // TematicaBox
             // 
             this.TematicaBox.DataSource = this.tématicaBindingSource1;
@@ -230,6 +245,11 @@ namespace OIT_Sernatur
             this.TematicaBox.Size = new System.Drawing.Size(168, 21);
             this.TematicaBox.TabIndex = 6;
             this.TematicaBox.ValueMember = "Tipo";
+            // 
+            // tématicaBindingSource1
+            // 
+            this.tématicaBindingSource1.DataMember = "Tématica";
+            this.tématicaBindingSource1.DataSource = this.sernatur_RegionalDataSet;
             // 
             // label9
             // 
@@ -274,6 +294,11 @@ namespace OIT_Sernatur
             this.XperBox.TabIndex = 7;
             this.XperBox.ValueMember = "Tipo";
             // 
+            // experienciasBindingSource1
+            // 
+            this.experienciasBindingSource1.DataMember = "Experiencias";
+            this.experienciasBindingSource1.DataSource = this.sernatur_RegionalDataSet;
+            // 
             // DestBox
             // 
             this.DestBox.DataSource = this.regiónDestinoPorRegionesBindingSource1;
@@ -293,6 +318,11 @@ namespace OIT_Sernatur
             // 
             this.regiónDestinoPorRegionesBindingSource1.DataMember = "RegiónDestino Por Regiones";
             this.regiónDestinoPorRegionesBindingSource1.DataSource = this.regiónBindingSource1;
+            // 
+            // regiónBindingSource1
+            // 
+            this.regiónBindingSource1.DataMember = "Región";
+            this.regiónBindingSource1.DataSource = this.sernatur_RegionalDataSet;
             // 
             // regiónDestinoPorRegionesBindingSource
             // 
@@ -334,6 +364,11 @@ namespace OIT_Sernatur
             this.PaisBox.Size = new System.Drawing.Size(168, 21);
             this.PaisBox.TabIndex = 2;
             this.PaisBox.ValueMember = "Nacionalidad";
+            // 
+            // nacionalidadBindingSource1
+            // 
+            this.nacionalidadBindingSource1.DataMember = "Nacionalidad";
+            this.nacionalidadBindingSource1.DataSource = this.sernatur_RegionalDataSet;
             // 
             // Calendario
             // 
@@ -405,41 +440,6 @@ namespace OIT_Sernatur
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // regiónBindingSource1
-            // 
-            this.regiónBindingSource1.DataMember = "Región";
-            this.regiónBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
-            // sernatur_RegionalDataSet
-            // 
-            this.sernatur_RegionalDataSet.DataSetName = "Sernatur_RegionalDataSet";
-            this.sernatur_RegionalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // oITBindingSource1
-            // 
-            this.oITBindingSource1.DataMember = "OIT";
-            this.oITBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
-            // horarioBindingSource1
-            // 
-            this.horarioBindingSource1.DataMember = "Horario";
-            this.horarioBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
-            // tématicaBindingSource1
-            // 
-            this.tématicaBindingSource1.DataMember = "Tématica";
-            this.tématicaBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
-            // experienciasBindingSource1
-            // 
-            this.experienciasBindingSource1.DataMember = "Experiencias";
-            this.experienciasBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
-            // nacionalidadBindingSource1
-            // 
-            this.nacionalidadBindingSource1.DataMember = "Nacionalidad";
-            this.nacionalidadBindingSource1.DataSource = this.sernatur_RegionalDataSet;
-            // 
             // oITTableAdapter
             // 
             this.oITTableAdapter.ClearBeforeFill = true;
@@ -490,15 +490,22 @@ namespace OIT_Sernatur
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.HomNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MujNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.asesoresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónDestinoPorRegionesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónDestinoPorRegionesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sernaturRegionalDataSetBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -507,13 +514,6 @@ namespace OIT_Sernatur
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.regiónBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tématicaBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.experienciasBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
