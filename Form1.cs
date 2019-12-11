@@ -43,7 +43,8 @@ namespace OIT_Sernatur
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;
-            Sofia_Sernatur.Properties.Settings.Default.DiActual = DiaHow;
+            Sofia_Sernatur.Properties.Settings.Default.DiActual = DiaNow;
+            Sofia_Sernatur.Properties.Settings.Default.Save();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -63,16 +64,10 @@ namespace OIT_Sernatur
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.OIT' Puede moverla o quitarla según sea necesario.
             this.oITTableAdapter.Fill(this.sernatur_RegionalDataSet.OIT);
 
+            Calendario.Format = DateTimePickerFormat.Custom;
+            Calendario.CustomFormat = "dd/MM/yyyy";
+            Calendario.Value = DateTime.Now;
 
-            NumCount.Text = Contador.ToString();
-            OITBox.Text = "";
-            RegiBox.Text = "";
-            HomNum.Value = 0;
-            MujNum.Value = 0;
-            DestBox.SelectedIndex = 0;
-            XperBox.SelectedIndex = 0;
-            TematicaBox.SelectedIndex = 0;
-            PaisBox.SelectedIndex = 0;
             DiaNow = Calendario.Value.Day;
             DiaHow = Sofia_Sernatur.Properties.Settings.Default.DiActual;
 
@@ -84,6 +79,16 @@ namespace OIT_Sernatur
             {
                 Contador = 0;
             }
+            NumCount.Text = Contador.ToString();
+
+            OITBox.Text = "";
+            RegiBox.Text = "";
+            HomNum.Value = 0;
+            MujNum.Value = 0;
+            DestBox.SelectedIndex = 0;
+            XperBox.SelectedIndex = 0;
+            TematicaBox.SelectedIndex = 0;
+            PaisBox.SelectedIndex = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -94,8 +99,6 @@ namespace OIT_Sernatur
 
             HoraDia = Calendario.Value.Hour;
             DiaNow = Calendario.Value.Day;
-
-            Console.WriteLine(Contador);
 
             String selecteded = "SELECT Id, [Rango Hora], [Hora Final], [Hora Inicial] FROM Horario WHERE([Hora Inicial] <= " + HoraDia + ")";
         }
@@ -122,6 +125,8 @@ namespace OIT_Sernatur
                 request.InsertDataOption = SpreadsheetsResource.ValuesResource.AppendRequest.InsertDataOptionEnum.INSERTROWS;
                 AppendValuesResponse resultadete = request.Execute();
                 PaisBox.Text = "";
+                HomNum.Value = 0;
+                MujNum.Value = 0;
             }else if (OITBox.Text == "" && !(PaisBox.Text == ""))
             {
                 mensaje = "El campo OIT es obligatorio";
