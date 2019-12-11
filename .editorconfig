@@ -20,3 +20,9 @@ dotnet_diagnostic.IDE0055.severity = none
 
 # CA1824: Marcar ensamblados con NeutralResourcesLanguageAttribute
 dotnet_diagnostic.CA1824.severity = none
+
+# AD0001: Error del analizador
+dotnet_diagnostic.AD0001.severity = none
+
+# CA3075: Procesamiento de DTD no seguro en XML
+dotnet_diagnostic.CA3075.severity = none
