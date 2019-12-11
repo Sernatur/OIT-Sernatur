@@ -13,49 +13,37 @@
  ---------------------------------------------------------------*/
 
 using System;
-using Google.Apis.Auth.OAuth2;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Threading;
-using System.Security.Principal;
 using System.Globalization;
 
 namespace OIT_Sernatur
 {
     public partial class Form1 : Form
     {
-        IFormatProvider cultura = new CultureInfo("fr-FR");
-        String FechaCorrecta,HoraCorrecta,Usuario,mensaje;
-        int HoraDia;
-        int Contador = 0;
+        //IFormatProvider cultura = new CultureInfo("fr-FR");
+        String FechaCorrecta,HoraCorrecta,/*Usuario,*/mensaje;
+        int HoraDia, DiaHow, DiaNow;
+        int Contador;
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;
+            Sofia_Sernatur.Properties.Settings.Default.DiActual = DiaHow;
+            Sofia_Sernatur.Properties.Settings.Default.Save();
+        }
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void horaDiariaToolStripButton_Click(object sender, EventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            try
-            {
-                this.horarioTableAdapter.HoraDiaria(this.sernatur_RegionalDataSet.Horario);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
+            Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;
+            Sofia_Sernatur.Properties.Settings.Default.DiActual = DiaHow;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,15 +73,29 @@ namespace OIT_Sernatur
             XperBox.SelectedIndex = 0;
             TematicaBox.SelectedIndex = 0;
             PaisBox.SelectedIndex = 0;
+            DiaNow = Calendario.Value.Day;
+            DiaHow = Sofia_Sernatur.Properties.Settings.Default.DiActual;
+
+            if (DiaHow == DiaNow)
+            {
+                Contador = Sofia_Sernatur.Properties.Settings.Default.Contador;
+            }
+            else
+            {
+                Contador = 0;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Calendario.Value = DateTime.Now;
             Calendario.Format = DateTimePickerFormat.Custom;
             Calendario.CustomFormat = "dd/MM/yyyy";
+            Calendario.Value = DateTime.Now;
 
             HoraDia = Calendario.Value.Hour;
+            DiaNow = Calendario.Value.Day;
+
+            Console.WriteLine(Contador);
 
             String selecteded = "SELECT Id, [Rango Hora], [Hora Final], [Hora Inicial] FROM Horario WHERE([Hora Inicial] <= " + HoraDia + ")";
         }

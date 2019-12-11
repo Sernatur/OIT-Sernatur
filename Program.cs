@@ -25,7 +25,7 @@ using System.Threading;
 
 namespace OIT_Sernatur
 {
-    public class Program
+    public static class Program
     {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static string ApplicationName = "Sernatur Formulario OIT";
