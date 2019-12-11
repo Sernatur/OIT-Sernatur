@@ -1,4 +1,4 @@
-﻿/*--------------------------------------------------------------
+﻿/*---------------------------------------------------------------
  * Programa “SOFIA” Diseñado para Sernatur
  * 
  * Programador: Oliver Osvaldo Consterla Araya
@@ -8,7 +8,7 @@
  * Programa diseñado con fines de facilitar y ayudar
  * a la automatización de la atención a turista
  * y el cálculo estadísticos que estos pueden conllevar.
- ---------------------------------------------------------------*/
+ ----------------------------------------------------------------*/
 
 using System;
 using Google.Apis.Auth.OAuth2;
