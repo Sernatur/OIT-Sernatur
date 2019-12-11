@@ -130,7 +130,7 @@ namespace OIT_Sernatur
                 request.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
                 request.InsertDataOption = SpreadsheetsResource.ValuesResource.AppendRequest.InsertDataOptionEnum.INSERTROWS;
                 AppendValuesResponse resultadete = request.Execute();
-                PaisBox.Text = "";
+                PaisBox.SelectedIndex = 0;
                 HomNum.Value = 0;
                 MujNum.Value = 0;
             }else if (OITBox.Text == "" && !(PaisBox.Text == ""))
