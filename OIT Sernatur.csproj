@@ -118,6 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sernatur_RegionalDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
