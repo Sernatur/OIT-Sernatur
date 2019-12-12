@@ -28,6 +28,24 @@ namespace OIT_Sernatur
         int HoraDia, DiaHow, DiaNow, MinutoDia,SegDia;
         int Contador;
 
+        private void TematicaBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TematicaBox.SelectedIndex == 4)
+            {
+                PIABox.Enabled = true;
+                PIABox.Visible = true;
+                PIAlabel.Enabled = true;
+                PIAlabel.Visible = true;
+            }
+            else
+            {
+                PIABox.Enabled = false;
+                PIABox.Visible = false;
+                PIAlabel.Enabled = false;
+                PIAlabel.Visible = false;
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;
@@ -49,6 +67,8 @@ namespace OIT_Sernatur
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.PIA' Puede moverla o quitarla según sea necesario.
+            this.pIATableAdapter.Fill(this.sernatur_RegionalDataSet.PIA);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Destino_Por_Regiones' Puede moverla o quitarla según sea necesario.
             this.destino_Por_RegionesTableAdapter.Fill(this.sernatur_RegionalDataSet.Destino_Por_Regiones);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Región' Puede moverla o quitarla según sea necesario.
@@ -120,7 +140,7 @@ namespace OIT_Sernatur
 
 
 
-                var oblist = new List<object> { OITBox.Text, "", PaisBox.Text, HorarioBox.SelectedValue, FechaCorrecta, TematicaBox.SelectedValue, XperBox.SelectedValue, RegiBox.SelectedValue, DestBox.SelectedValue, HomNum.Value, MujNum.Value };
+                var oblist = new List<object> { OITBox.Text, "", PaisBox.Text, HorarioBox.SelectedValue, FechaCorrecta, TematicaBox.SelectedValue, XperBox.SelectedValue, RegiBox.SelectedValue, DestBox.SelectedValue, PIABox.SelectedValue,HomNum.Value, MujNum.Value };
                 RangoValor.Values = new List<IList<object>> { oblist };
 
                 Contador = Contador + 1;
@@ -136,6 +156,7 @@ namespace OIT_Sernatur
                 RegiBox.SelectedIndex = 0;
                 DestBox.SelectedIndex = 0;
                 XperBox.SelectedIndex = 0;
+                PIABox.SelectedIndex = 0;
                 TematicaBox.SelectedIndex = 0;
             }else if (OITBox.Text == "" && !(PaisBox.Text == ""))
             {
