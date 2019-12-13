@@ -82,7 +82,9 @@ namespace OIT_Sernatur
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.NumCount = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.PaisDervBox = new System.Windows.Forms.ComboBox();
             this.PIABox = new System.Windows.Forms.ComboBox();
+            this.tématicaPIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PIAlabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.oITTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.OITTableAdapter();
@@ -92,8 +94,11 @@ namespace OIT_Sernatur
             this.experienciasTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.ExperienciasTableAdapter();
             this.regiónTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.RegiónTableAdapter();
             this.destino_Por_RegionesTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.Destino_Por_RegionesTableAdapter();
-            this.tématicaPIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pIATableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.PIATableAdapter();
+            this.sernatur_RegionalDataSet1 = new Sofia_Sernatur.Sernatur_RegionalDataSet();
+            this.nacionalidadBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.nacionalidadRegiónPersonaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.región_personaTableAdapter = new Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.Región_personaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.HomNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oITBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet)).BeginInit();
@@ -118,6 +123,9 @@ namespace OIT_Sernatur
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tématicaPIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadRegiónPersonaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -194,14 +202,14 @@ namespace OIT_Sernatur
             this.label5.Location = new System.Drawing.Point(16, 6);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Nacionalidad";
+            this.label5.Text = "País";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(523, 53);
+            this.label6.Location = new System.Drawing.Point(523, 51);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
@@ -370,6 +378,7 @@ namespace OIT_Sernatur
             this.PaisBox.Size = new System.Drawing.Size(168, 21);
             this.PaisBox.TabIndex = 2;
             this.PaisBox.ValueMember = "Nacionalidad";
+            this.PaisBox.SelectedIndexChanged += new System.EventHandler(this.PaisBox_SelectedIndexChanged);
             // 
             // nacionalidadBindingSource1
             // 
@@ -405,6 +414,7 @@ namespace OIT_Sernatur
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.PaisDervBox);
             this.splitContainer1.Panel2.Controls.Add(this.PIABox);
             this.splitContainer1.Panel2.Controls.Add(this.SendButton);
             this.splitContainer1.Panel2.Controls.Add(this.DestBox);
@@ -427,7 +437,7 @@ namespace OIT_Sernatur
             // NumCount
             // 
             this.NumCount.AutoSize = true;
-            this.NumCount.Location = new System.Drawing.Point(346, 31);
+            this.NumCount.Location = new System.Drawing.Point(348, 31);
             this.NumCount.Name = "NumCount";
             this.NumCount.Size = new System.Drawing.Size(74, 13);
             this.NumCount.TabIndex = 15;
@@ -442,6 +452,20 @@ namespace OIT_Sernatur
             this.label7.TabIndex = 15;
             this.label7.Text = "Atenciones del dia:";
             // 
+            // PaisDervBox
+            // 
+            this.PaisDervBox.DataSource = this.nacionalidadRegiónPersonaBindingSource;
+            this.PaisDervBox.DisplayMember = "Nombre";
+            this.PaisDervBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PaisDervBox.Enabled = false;
+            this.PaisDervBox.FormattingEnabled = true;
+            this.PaisDervBox.Location = new System.Drawing.Point(19, 46);
+            this.PaisDervBox.Name = "PaisDervBox";
+            this.PaisDervBox.Size = new System.Drawing.Size(169, 21);
+            this.PaisDervBox.TabIndex = 14;
+            this.PaisDervBox.ValueMember = "Nombre";
+            this.PaisDervBox.Visible = false;
+            // 
             // PIABox
             // 
             this.PIABox.DataSource = this.tématicaPIABindingSource;
@@ -455,6 +479,11 @@ namespace OIT_Sernatur
             this.PIABox.TabIndex = 13;
             this.PIABox.ValueMember = "Nombre Corto";
             this.PIABox.Visible = false;
+            // 
+            // tématicaPIABindingSource
+            // 
+            this.tématicaPIABindingSource.DataMember = "TématicaPIA";
+            this.tématicaPIABindingSource.DataSource = this.tématicaBindingSource1;
             // 
             // PIAlabel
             // 
@@ -502,14 +531,28 @@ namespace OIT_Sernatur
             // 
             this.destino_Por_RegionesTableAdapter.ClearBeforeFill = true;
             // 
-            // tématicaPIABindingSource
-            // 
-            this.tématicaPIABindingSource.DataMember = "TématicaPIA";
-            this.tématicaPIABindingSource.DataSource = this.tématicaBindingSource1;
-            // 
             // pIATableAdapter
             // 
             this.pIATableAdapter.ClearBeforeFill = true;
+            // 
+            // sernatur_RegionalDataSet1
+            // 
+            this.sernatur_RegionalDataSet1.DataSetName = "Sernatur_RegionalDataSet";
+            this.sernatur_RegionalDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nacionalidadBindingSource2
+            // 
+            this.nacionalidadBindingSource2.DataMember = "Nacionalidad";
+            this.nacionalidadBindingSource2.DataSource = this.sernatur_RegionalDataSet1;
+            // 
+            // nacionalidadRegiónPersonaBindingSource
+            // 
+            this.nacionalidadRegiónPersonaBindingSource.DataMember = "NacionalidadRegión persona";
+            this.nacionalidadRegiónPersonaBindingSource.DataSource = this.nacionalidadBindingSource1;
+            // 
+            // región_personaTableAdapter
+            // 
+            this.región_personaTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -558,6 +601,9 @@ namespace OIT_Sernatur
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tématicaPIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sernatur_RegionalDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nacionalidadRegiónPersonaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,6 +663,11 @@ namespace OIT_Sernatur
         private System.Windows.Forms.Label PIAlabel;
         private System.Windows.Forms.BindingSource tématicaPIABindingSource;
         private Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.PIATableAdapter pIATableAdapter;
+        private System.Windows.Forms.ComboBox PaisDervBox;
+        private Sofia_Sernatur.Sernatur_RegionalDataSet sernatur_RegionalDataSet1;
+        private System.Windows.Forms.BindingSource nacionalidadBindingSource2;
+        private System.Windows.Forms.BindingSource nacionalidadRegiónPersonaBindingSource;
+        private Sofia_Sernatur.Sernatur_RegionalDataSetTableAdapters.Región_personaTableAdapter región_personaTableAdapter;
     }
 }
 

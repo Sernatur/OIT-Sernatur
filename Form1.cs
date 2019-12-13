@@ -46,6 +46,20 @@ namespace OIT_Sernatur
             }
         }
 
+        private void PaisBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PaisBox.SelectedIndex == 0)
+            {
+                PaisDervBox.Enabled = true;
+                PaisDervBox.Visible = true;
+            }
+            else
+            {
+                PaisDervBox.Enabled = false;
+                PaisDervBox.Visible = false;
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;
@@ -67,6 +81,10 @@ namespace OIT_Sernatur
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Región_persona' Puede moverla o quitarla según sea necesario.
+            this.región_personaTableAdapter.Fill(this.sernatur_RegionalDataSet.Región_persona);
+            // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet1.Nacionalidad' Puede moverla o quitarla según sea necesario.
+            this.nacionalidadTableAdapter.Fill(this.sernatur_RegionalDataSet1.Nacionalidad);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.PIA' Puede moverla o quitarla según sea necesario.
             this.pIATableAdapter.Fill(this.sernatur_RegionalDataSet.PIA);
             // TODO: esta línea de código carga datos en la tabla 'sernatur_RegionalDataSet.Destino_Por_Regiones' Puede moverla o quitarla según sea necesario.
@@ -99,6 +117,18 @@ namespace OIT_Sernatur
             {
                 Contador = 0;
             }
+
+            if (PaisBox.SelectedIndex == 0)
+            {
+                PaisDervBox.Enabled = true;
+                PaisDervBox.Visible = true;
+            }
+            else
+            {
+                PaisDervBox.Enabled = false;
+                PaisDervBox.Visible = false;
+            }
+
             NumCount.Text = Contador.ToString();
 
             OITBox.Text = "";
@@ -140,7 +170,7 @@ namespace OIT_Sernatur
 
 
 
-                var oblist = new List<object> { OITBox.Text, "", PaisBox.Text, HorarioBox.SelectedValue, FechaCorrecta, TematicaBox.SelectedValue, XperBox.SelectedValue, RegiBox.SelectedValue, DestBox.SelectedValue, PIABox.SelectedValue,HomNum.Value, MujNum.Value };
+                var oblist = new List<object> { OITBox.Text, "", PaisBox.Text+"/"+PaisDervBox.SelectedValue, HorarioBox.SelectedValue, FechaCorrecta, TematicaBox.SelectedValue, XperBox.SelectedValue, RegiBox.SelectedValue, DestBox.SelectedValue, PIABox.SelectedValue,HomNum.Value, MujNum.Value };
                 RangoValor.Values = new List<IList<object>> { oblist };
 
                 Contador = Contador + 1;
@@ -156,7 +186,6 @@ namespace OIT_Sernatur
                 RegiBox.SelectedIndex = 0;
                 DestBox.SelectedIndex = 0;
                 XperBox.SelectedIndex = 0;
-                PIABox.SelectedIndex = 0;
                 TematicaBox.SelectedIndex = 0;
             }else if (OITBox.Text == "" && !(PaisBox.Text == ""))
             {
