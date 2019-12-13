@@ -60,6 +60,20 @@ namespace OIT_Sernatur
             }
         }
 
+        private void PaisBox_TextUpdate(object sender, EventArgs e)
+        {
+            if (PaisBox.Text == "Chile")
+            {
+                PaisDervBox.Enabled = true;
+                PaisDervBox.Visible = true;
+            }
+            else
+            {
+                PaisDervBox.Enabled = false;
+                PaisDervBox.Visible = false;
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Sofia_Sernatur.Properties.Settings.Default.Contador = Contador;

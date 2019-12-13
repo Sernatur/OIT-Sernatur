@@ -379,6 +379,7 @@ namespace OIT_Sernatur
             this.PaisBox.TabIndex = 2;
             this.PaisBox.ValueMember = "Nacionalidad";
             this.PaisBox.SelectedIndexChanged += new System.EventHandler(this.PaisBox_SelectedIndexChanged);
+            this.PaisBox.TextUpdate += new System.EventHandler(this.PaisBox_TextUpdate);
             // 
             // nacionalidadBindingSource1
             // 
