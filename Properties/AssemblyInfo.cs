@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Sofia Sernatur")]
 [assembly: AssemblyDescription("Software Oficial de Formulario de Informacion para Asesoramiento")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Oliver Osvaldo Consterla Araya")]
 [assembly: AssemblyProduct("Sofia")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
